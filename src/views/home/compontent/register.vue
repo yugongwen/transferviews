@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-main class="registerData">
-      <h4>登录</h4>
+      <h4>注册</h4>
       <el-form ref="ruleForm" status-icon :model="form" :rules="rules" label-width="80px">
         <el-form-item label="电子邮箱">
           <el-input v-model="form.mail" placeholder="请输入邮箱地址"></el-input>
@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      console.log(form);
+      console.log(this.form);
     },
   },
 };

@@ -3,7 +3,10 @@
   <el-container>
     <el-header>
       <div>
-        <img src="../../assets/home/home_logo.png" alt="首页图标" />
+      <div @click='handleSelect("homepage")'>
+        <img src="../../assets/home/home_logo.png" alt="首页图标"  />
+      </div>
+        
         <div class="tiplogin">
           <span>欢迎使用北欧海淘，请先</span>
           <el-button type="text" @click="handleSelect('login')">登录</el-button>
@@ -14,7 +17,7 @@
       <div>
         <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
           <el-menu-item index="homepage">首页</el-menu-item>
-          <el-menu-item index="moneycheck">资费查询</el-menu-item>
+          <el-menu-item index="feequery">资费查询</el-menu-item>
           <el-menu-item index="newuser">新手上路</el-menu-item>
           <el-menu-item index="usercenter">用户中心</el-menu-item>
         </el-menu>
@@ -32,28 +35,23 @@
 
 <script>
 import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { useRouter,onBeforeRouteUpdate } from "vue-router";
 export default {
   setup() {
     let activeIndex = ref("homepage");
     const router = useRouter();
     function handleSelect(key, keyPath) {
+       activeIndex.value =key;
       console.log(key, keyPath);
-      // console.log(router, "--------");
-      console.log(key);
+     console.log(activeIndex)
       // debugger;
       router.push({
         path: `/${key}`,
       });
-    }
-    return { activeIndex, handleSelect };
+    };
+    return {  activeIndex, handleSelect };
   },
-  // methods(){
-  //   handleSelect(data){
-  //     console.log(data);
-  //     debugger;
-  //   }
-  // }
+ 
 };
 </script>
 <style scoped lang="scss">
