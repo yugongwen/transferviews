@@ -7,6 +7,10 @@ import notFound from '../components/404.vue'
 import homePage from '../views/home/compontent/index.vue'
 import login from '../views/home/compontent/login.vue'
 import register from '../views/home/compontent/register.vue'
+import feequery from '../views/home/compontent/feequery.vue'
+import newuser from '../views/home/compontent/newuser.vue'
+import usercenter from '../views/home/compontent/usercenter.vue'
+//费用查询
 // 2. 定义路由配置
 const routes = [
 
@@ -14,6 +18,18 @@ const routes = [
   children:[
     {
       path:'/homepage',component:homePage,
+    },
+    //资费查询
+    {
+      path:'/feequery',component:feequery,
+    },
+     //用户中心
+     {
+      path:'/usercenter',component:usercenter,
+    },
+     //新手须知
+     {
+      path:'/newuser',component:newuser,
     },
       //登录页面
   {

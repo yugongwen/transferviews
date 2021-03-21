@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import { postLogin} from '../../../api/api'
+import {ElMessage} from 'element-plus'
 export default {
   data() {
     return {
@@ -37,8 +39,26 @@ export default {
   },
   methods: {
     onSubmit() {
-      console.log("submit");
+      // console.log("submit");
       console.log(this.form);
+      // debugger;
+       postLogin(this.form).then(data=>{
+         console.log(data)
+         if(data.status ==1){
+            ElMessage.warning({
+            message:data.message,
+            type:'warning'
+          })
+         }else{
+           ElMessage.success({
+            message:data.message,
+            type:'success'
+          })
+          console.log(data.data.token)
+          const token = data.data.token;
+          window.localStorage.setItem('token',token)
+         }
+       })
     },
   },
 };
