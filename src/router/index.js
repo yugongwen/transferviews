@@ -9,7 +9,7 @@ import login from '../views/home/compontent/login.vue'
 import register from '../views/home/compontent/register.vue'
 import feequery from '../views/home/compontent/feequery.vue'
 import newuser from '../views/home/compontent/newuser.vue'
-import usercenter from '../views/home/compontent/usercenter.vue'
+import usercenter from '../views/usercenter/usercenter.vue'
 //费用查询
 // 2. 定义路由配置
 const routes = [
