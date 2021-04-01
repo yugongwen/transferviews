@@ -14,7 +14,7 @@
           <el-button type="text" @click="handleSelect('register')">注册</el-button>
         </div>
       </div>
-      <div>
+      <div class="rightNav">
         <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
           <el-menu-item index="homepage">首页</el-menu-item>
           <el-menu-item index="feequery">资费查询</el-menu-item>
@@ -74,6 +74,9 @@ export default {
         padding: 0 4px;
       }
     }
+  }
+  .rightNav{
+    min-width: 300px;;
   }
 }
 footer {

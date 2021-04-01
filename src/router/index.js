@@ -10,6 +10,7 @@ import register from '../views/home/compontent/register.vue'
 import feequery from '../views/home/compontent/feequery.vue'
 import newuser from '../views/home/compontent/newuser.vue'
 import usercenter from '../views/usercenter/usercenter.vue'
+import userRouter from './usercenter'
 //费用查询
 // 2. 定义路由配置
 const routes = [
@@ -26,6 +27,7 @@ const routes = [
      //用户中心
      {
       path:'/usercenter',component:usercenter,
+      children:[...userRouter]
     },
      //新手须知
      {

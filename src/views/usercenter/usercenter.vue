@@ -28,7 +28,7 @@ export default {
         {
           navName: "运单信息",
           navContent: [
-            { name: "包裹预报", route: "addPackege" },
+            { name: "包裹预报", route: "addPackge" },
             { name: "瑞典仓库", route: "swedenAddress" },
             { name: "美国仓库", route: "usaAddress" },
             {name: "退货", route: "returnpackge" },
