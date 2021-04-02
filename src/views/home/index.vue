@@ -1,6 +1,6 @@
 <template>
   <!-- 转运网站首页 -->
-  <el-container>
+  <el-container >
     <el-header>
       <div>
       <div @click='handleSelect("homepage")'>
@@ -55,8 +55,16 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+// .contenthome{
+//   width:100%;
+//   display: flex;
+//   justify-content: center;
+  
+// }
 .el-header {
   // background:
+  // width:80%;
+  padding:0 4%;
   display: flex;
   justify-content: space-between;
   // align-items: center;
@@ -76,7 +84,7 @@ export default {
     }
   }
   .rightNav{
-    min-width: 300px;;
+    min-width: 300px;
   }
 }
 footer {

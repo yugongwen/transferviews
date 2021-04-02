@@ -5,9 +5,11 @@
       <el-menu :collapse="false">
         <el-submenu v-for="(data,index) in navArray" :key='index.toString()' :index='index.toString()'>
           <template #title>
-            <span>{{data.navName}}</span>
+            <h4>{{data.navName}}</h4>
           </template>
-          <el-menu-item v-for="(nav,index) in data.navContent" :key='index.toString()' :index="nav.route" @click='handleClick(nav.route)'>{{nav.name}}</el-menu-item>
+          <el-menu-item v-for="(nav,index) in data.navContent" :key='index.toString()' :index="nav.route" @click='handleClick(nav.route)'>
+             <template #title><h5>{{nav.name}}</h5></template>
+            </el-menu-item>
         </el-submenu>
         
       </el-menu>
@@ -90,4 +92,12 @@ export default {
 };
 </script>
 <style scoped lang='scss'>
+h4{
+  font-size:16px;
+    font-weight: 450;
+  }
+  h5{
+     font-size:14px;
+    font-weight: 450;
+  }
 </style>

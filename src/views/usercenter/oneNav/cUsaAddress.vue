@@ -1,6 +1,6 @@
 <template>
   <div>
-       瑞典仓库
+       美国地址
   </div>
 </template>
 

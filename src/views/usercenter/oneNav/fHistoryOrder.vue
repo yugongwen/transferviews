@@ -1,6 +1,6 @@
 <template>
   <div>
-       瑞典仓库
+       历史订单
   </div>
 </template>
 
