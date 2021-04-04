@@ -42,7 +42,7 @@ export default {
           navName: "财务信息",
            navContent: [
             { name: "包裹预报", route: "onlineCharge" },
-            { name: "瑞典仓库", route: "chargeHistory" },
+            { name: "充值记录", route: "chargeHistory" },
             { name: "扣款明细", route: "deductionDetails" },
             {name: "申请退款", route: "refund" }
           ],
@@ -52,8 +52,6 @@ export default {
            navContent: [
             { name: "个人信息", route: "personInfo" },
             { name: "仓库地址", route: "wareAddress" },
-            // { deductionDetails: "扣款明细", route: "deductionDetails" },
-            // {refund: "申请退款", route: "refund" }
           ],
         },
       ],
@@ -94,10 +92,13 @@ export default {
 <style scoped lang='scss'>
 h4{
   font-size:16px;
-    font-weight: 450;
+    font-weight: 600;
+    color:#333;
   }
   h5{
      font-size:14px;
     font-weight: 450;
+    color:#666;
+    margin:0;
   }
 </style>
