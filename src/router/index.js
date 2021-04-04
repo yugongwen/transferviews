@@ -26,7 +26,7 @@ const routes = [
     },
      //用户中心
      {
-      path:'/usercenter',component:usercenter,
+      path:'/usercenter',redirect:'/wareAddress',component:usercenter,
       children:[...userRouter]
     },
      //新手须知
@@ -49,7 +49,7 @@ const routes = [
 // 3. 创建路由实例
 const router = createRouter({
   // 4. 采用hash 模式
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   // 采用 history 模式
   // history: createWebHistory(),
   routes, //使用上方定义的路由配置

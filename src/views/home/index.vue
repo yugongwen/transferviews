@@ -34,24 +34,34 @@
 </template>
 
 <script>
-import { ref } from "vue";
-import { useRouter,onBeforeRouteUpdate } from "vue-router";
+import { ref,getCurrentInstance } from "vue";
+import { useRouter,} from "vue-router";
 export default {
   setup() {
-    let activeIndex = ref("homepage");
+    
     const router = useRouter();
+    let current = getCurrentInstance();
+    let activeIndex = ref(`${current.ctx.activeIndex}`);
     function handleSelect(key, keyPath) {
-       activeIndex.value =key;
+       activeIndex =key;
       console.log(key, keyPath);
+      // console.log(current.ctx.activeIndex);
      console.log(activeIndex)
       // debugger;
       router.push({
-        path: `/${key}`,
+        path: `/${activeIndex}`,
       });
     };
     return {  activeIndex, handleSelect };
   },
- 
+  // data(){
+  //   return
+  // }
+  // mounted(){
+  //   getroute(){
+  //     console.log(this.$route)
+  //   }
+  // }
 };
 </script>
 <style scoped lang="scss">

@@ -2,7 +2,7 @@
   <el-container>
     <!-- //left nav -->
     <el-aside>
-      <el-menu :collapse="false">
+      <el-menu :collapse="false" :default-active="activeIndex">
         <el-submenu v-for="(data,index) in navArray" :key='index.toString()' :index='index.toString()'>
           <template #title>
             <h4>{{data.navName}}</h4>
@@ -22,6 +22,7 @@
 
 <script>
 import { useRouter } from "vue-router";
+import {getCurrentInstance,ref} from 'vue'
 // import { useRouter } from "vue-router";
 export default {
   data() {
@@ -58,35 +59,25 @@ export default {
     };
   },
   setup(){
-    //   handleClick(key){
-    //     const router = useRouter();
-    //   console.log(key)
-    //   // this.
-    //   router.push({
-    //     path: `/${key}`,
-    //   });
-    // };
-     const router = useRouter();
+    const router = useRouter();
+    let current = getCurrentInstance()
+    let activeIndex = ref(`${current.ctx.activeIndex}`);
     function handleClick(key){
-     
+      console.log(current)
       router.push({
         path:`/${key}`
+       
       })
     }
     return {
-      handleClick
+      handleClick,activeIndex
     }
   },
   methods:{
-    // handleClick(key){
-    //     const router = useRouter();
-    //   console.log(key)
-    //   // this.
-    //   router.push({
-    //     path: `/${key}`,
-    //   });
-    // }
-  }
+  },
+  // mounted() {
+  //   this.handleClick("wareAddress")
+  // },
 };
 </script>
 <style scoped lang='scss'>
@@ -94,6 +85,14 @@ h4{
   font-size:16px;
     font-weight: 600;
     color:#333;
+  }
+  li.is-opened li.is-active{
+    h5{
+      //  background-color: aquamarine;
+      font-weight:600;
+      color:rgb(64, 158, 255)
+    }
+    
   }
   h5{
      font-size:14px;
