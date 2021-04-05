@@ -64,7 +64,7 @@ onSubmit(){
 <style>
 .forminfo{
   width:40rem;
-  margin:auto
+  margin:auto;
   /* display: flex;
   align-items: center; */
   
