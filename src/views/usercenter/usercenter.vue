@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { useRouter } from "vue-router";
+import { useRouter,onBeforeRouteUpdate } from "vue-router";
 import {getCurrentInstance,ref} from 'vue'
 // import { useRouter } from "vue-router";
 export default {
@@ -74,8 +74,18 @@ export default {
        
       })
     }
+    onBeforeRouteUpdate((to)=>{
+      console.log(to,'=====');
+      // let urldata = to.fullPath.substr(1)
+      // handleClick(urldata)
+    })
+//       setup(){
+// onBeforeRouteUpdate((to)=>{
+//   console.log(to,'=======')
+// })
+//   },
     return {
-      handleClick,activeIndex
+      handleClick,activeIndex,onBeforeRouteUpdate
     }
   },
   methods:{

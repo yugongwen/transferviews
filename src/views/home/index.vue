@@ -45,7 +45,7 @@ export default {
     let activeIndex = ref(`${current.ctx.activeIndex}`);
     function handleSelect(key, keyPath) {
        activeIndex =key;
-      console.log(key, keyPath);
+      // console.log(key, keyPath);
       // console.log(current.ctx.activeIndex);
      console.log(activeIndex)
       // debugger;

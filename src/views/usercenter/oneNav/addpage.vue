@@ -44,7 +44,9 @@
 </template>
 
 <script>
+// import { onBeforeRouteUpdate } from "vue-router";
 export default {
+
 data(){
   return{
     form:{
