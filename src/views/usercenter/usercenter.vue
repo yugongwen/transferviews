@@ -2,7 +2,7 @@
   <el-container>
     <!-- //left nav -->
     <el-aside>
-      <el-menu :collapse="false" :default-active="activeIndex">
+      <el-menu :collapse="false" :default-active="avtiveNum">
         <el-submenu v-for="(data,index) in navArray" :key='index.toString()' :index='index.toString()'>
           <template #title>
             <h4>{{data.navName}}</h4>
@@ -15,7 +15,10 @@
       </el-menu>
     </el-aside>
     <el-main>
-      <router-view></router-view>
+      <div class="contentRight">
+          <router-view ></router-view>
+      </div>
+    
     </el-main>
   </el-container>
 </template>
@@ -27,6 +30,7 @@ import {getCurrentInstance,ref} from 'vue'
 export default {
   data() {
     return {
+      activeNum:'',
       navArray: [
         {
           navName: "运单信息",
@@ -63,7 +67,8 @@ export default {
     let current = getCurrentInstance()
     let activeIndex = ref(`${current.ctx.activeIndex}`);
     function handleClick(key){
-      console.log(current)
+      // console.log(current)
+      //  activeIndex = key;
       router.push({
         path:`/${key}`
        
@@ -74,9 +79,13 @@ export default {
     }
   },
   methods:{
+    
+    // fn(){
+    //   this.avtiveNum=this.activeIndex
+    // }
   },
   // mounted() {
-  //   this.handleClick("wareAddress")
+  //   fn()
   // },
 };
 </script>
@@ -100,4 +109,16 @@ h4{
     color:#666;
     margin:0;
   }
+.el-main{
+  background-color:#D8D8D8;
+  padding:10px 10px 40px 10px;
+  overflow: scroll;
+}
+.contentRight{
+  background-color: white;
+  height: 100%;
+  box-sizing: border-box;
+  padding:10px;
+  overflow: scroll;
+}
 </style>

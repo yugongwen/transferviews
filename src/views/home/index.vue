@@ -1,6 +1,6 @@
 <template>
   <!-- 转运网站首页 -->
-  <el-container >
+  <el-container class='homeContent'>
     <el-header>
       <div>
       <div @click='handleSelect("homepage")'>
@@ -24,7 +24,8 @@
       </div>
       <!-- <span>欢迎光临北欧海淘，请先登录或注册</span> -->
     </el-header>
-    <router-view></router-view>
+       <router-view></router-view>
+    
     <footer>
       <p>
         专业瑞典海淘美国代购转运，可以选择瑞典\美国直接发货或者拼箱转运,私人地址发货。
@@ -54,14 +55,6 @@ export default {
     };
     return {  activeIndex, handleSelect };
   },
-  // data(){
-  //   return
-  // }
-  // mounted(){
-  //   getroute(){
-  //     console.log(this.$route)
-  //   }
-  // }
 };
 </script>
 <style scoped lang="scss">
@@ -70,6 +63,11 @@ export default {
 //   display: flex;
 //   justify-content: center;
   
+  .homeContent{
+    height:100%;
+    margin:0;
+    // overflow: hidden;
+  }
 // }
 .el-header {
   // background:
@@ -77,6 +75,8 @@ export default {
   padding:0 4%;
   display: flex;
   justify-content: space-between;
+  // position: fixed;
+  // top:0;
   // align-items: center;
   div {
     display: flex;
@@ -97,15 +97,20 @@ export default {
     min-width: 300px;
   }
 }
+// .el-main{
+//   width:calc(100%-60px);
+// }
 footer {
   width: 100%;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   display: flex;
-  height: 60px;
+  height: 30px;
+  background-color: #eee;
   justify-content: center;
   align-items: center;
   p {
+    font-size:13px;
     margin: auto;
     color: #666;
   }
