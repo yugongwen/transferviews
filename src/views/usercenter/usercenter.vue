@@ -2,7 +2,7 @@
   <el-container>
     <!-- //left nav -->
     <el-aside>
-      <el-menu :collapse="false" :default-active="avtiveNum">
+      <el-menu :collapse="false" :default-active="activeIndex">
         <el-submenu v-for="(data,index) in navArray" :key='index.toString()' :index='index.toString()'>
           <template #title>
             <h4>{{data.navName}}</h4>

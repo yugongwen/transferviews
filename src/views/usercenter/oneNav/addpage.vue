@@ -5,13 +5,19 @@
        <el-main  class="forminfo">
         <el-form label-width="160px" ref="form" :model="form">
          <el-form-item label='快递公司'>
-           <el-input v-model="form.expressname"></el-input>
+           <el-input v-model="form.expressname" placeholder="请输入快递公司名称"></el-input>
          </el-form-item>
          <el-form-item label='收件仓库'>
-           <el-select v-model="form.region" placeholder="请选择收件仓库">
-              <el-option label="瑞典仓库" value="sweden"></el-option>
+           <div class="addressSelect">
+               <el-select v-model="form.region" placeholder="请选择收件仓库">
+                <el-option label="瑞典仓库" value="sweden"></el-option>
                <el-option label="美国仓库" value="usa"></el-option>
              </el-select>
+           </div>
+           <!-- <el-select v-model="form.region" placeholder="请选择收件仓库">
+              <el-option label="瑞典仓库" value="sweden"></el-option>
+               <el-option label="美国仓库" value="usa"></el-option>
+             </el-select> -->
          </el-form-item>
           <el-form-item label='包裹运单号'>
            <el-input v-model="form.trackingnumber"></el-input>
@@ -61,12 +67,15 @@ onSubmit(){
 }
 </script>
 
-<style>
+<style lang='scss' scoped>
 .forminfo{
   width:40rem;
   margin:auto;
   /* display: flex;
   align-items: center; */
   
+}
+.addressSelect{
+  display: flex;
 }
 </style>
