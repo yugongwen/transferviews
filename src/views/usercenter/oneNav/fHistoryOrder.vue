@@ -1,6 +1,6 @@
 <template>
   <div>
-       历史订单
+       暂无历史订单
   </div>
 </template>
 
