@@ -1,6 +1,6 @@
 <template>
   <div>
-       包裹运单
+       瑞典仓库地址
   </div>
 </template>
 

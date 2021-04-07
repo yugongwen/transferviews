@@ -38,23 +38,47 @@
 import { ref,getCurrentInstance } from "vue";
 import { useRouter,} from "vue-router";
 export default {
+  data(){
+    return {
+      activeIndex:''
+    }
+  },
   setup() {
     
     const router = useRouter();
-    let current = getCurrentInstance();
-    let activeIndex = ref(`${current.ctx.activeIndex}`);
+    // let current = getCurrentInstance();
+    let homeactive = ref(localStorage.getItem('activehome')||`homepage`);
+    // let activeIndex;
     function handleSelect(key, keyPath) {
-       activeIndex =key;
-      // console.log(key, keyPath);
+      //  activeIndex =key;
+      // console.log(activeIndex, keyPath);
+
       // console.log(current.ctx.activeIndex);
-     console.log(activeIndex)
+    //  console.log(activeIndex)
+      localStorage.setItem('activehome',key)
+      if(key =='usercenter'){
+        localStorage.setItem(`routerPath`,`personInfo`);
+      }
+        
       // debugger;
       router.push({
-        path: `/${activeIndex}`,
+        path: key,
       });
     };
-    return {  activeIndex, handleSelect };
+    return { homeactive,handleSelect };
   },
+  methods(){
+
+  },
+  // created(){
+    
+  //   this.handleSelect(this.activeIndex)
+  // },
+  // mounted
+  mounted(){
+    this.activeIndex = localStorage.getItem('activehome')
+    // this.handleSelect(`homepage`)
+  }
 };
 </script>
 <style scoped lang="scss">

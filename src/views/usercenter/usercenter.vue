@@ -2,7 +2,7 @@
   <el-container>
     <!-- //left nav -->
     <el-aside>
-      <el-menu :collapse="false" :default-active="activeIndex">
+      <el-menu :collapse="false" :default-active="navActive">
         <el-submenu v-for="(data,index) in navArray" :key='index.toString()' :index='index.toString()'>
           <template #title>
             <h4>{{data.navName}}</h4>
@@ -30,7 +30,7 @@ import {getCurrentInstance,ref} from 'vue'
 export default {
   data() {
     return {
-      activeNum:'',
+      navActive:'',
       navArray: [
         {
           navName: "运单信息",
@@ -64,8 +64,9 @@ export default {
   },
   setup(){
     const router = useRouter();
-    let current = getCurrentInstance()
-    let activeIndex = ref(`${current.ctx.activeIndex}`);
+    // let current = getCurrentInstance()
+    // let activeIndex=localStorage.getItem('routerPath');
+    let homePage = localStorage.getItem('routerPath')
     function handleClick(key){
       // console.log(current)
       //  activeIndex = key;
@@ -76,23 +77,17 @@ export default {
     }
     onBeforeRouteUpdate((to)=>{
       console.log(to,'=====');
+      let newRouter =to.fullPath.substr(1)
+      localStorage.setItem(`routerPath`,newRouter)
       // let urldata = to.fullPath.substr(1)
       // handleClick(urldata)
     })
-//       setup(){
-// onBeforeRouteUpdate((to)=>{
-//   console.log(to,'=======')
-// })
-//   },
     return {
-      handleClick,activeIndex,onBeforeRouteUpdate
+      handleClick,onBeforeRouteUpdate
     }
   },
-  methods:{
-    
-    // fn(){
-    //   this.avtiveNum=this.activeIndex
-    // }
+  mounted(){
+    this.navActive = localStorage.getItem('routerPath');
   },
   // mounted() {
   //   fn()
