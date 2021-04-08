@@ -46,9 +46,9 @@ export default {
         {
           navName: "财务信息",
            navContent: [
-            { name: "包裹预报", route: "onlineCharge" },
+            { name: "在线充值", route: "onlineCharge" },
             { name: "充值记录", route: "chargeHistory" },
-            { name: "扣款明细", route: "deductionDetails" },
+            // { name: "扣款明细", route: "deductionDetails" },
             {name: "申请退款", route: "refund" }
           ],
         },
