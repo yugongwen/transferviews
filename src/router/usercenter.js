@@ -7,7 +7,7 @@ import fhistory from '../views/usercenter/oneNav/fHistoryOrder.vue'
 //导航二 财务信息部分
 import onlineCharge from '../views/usercenter/twoMoney/aOnlineCharge.vue'
 import chargehistory from '../views/usercenter/twoMoney/bChargeHistory.vue'
-import deductionDetail from '../views/usercenter/twoMoney/cDeductionDetails.vue'
+// import deductionDetail from '../views/usercenter/twoMoney/cDeductionDetails.vue'
 import refound from '../views/usercenter/twoMoney/dRefund.vue'
 //导航三
 import personInfo from '../views/usercenter/threeAcount/aPersonInfo.vue'
@@ -38,9 +38,9 @@ export default[
       {
         path:'/chargeHistory',component:chargehistory
       },
-      {
-        path:'/deductionDetails',component:deductionDetail
-      },
+      // {
+      //   path:'/deductionDetails',component:deductionDetail
+      // },
       {
         path:'/refund',component:refound
       },
