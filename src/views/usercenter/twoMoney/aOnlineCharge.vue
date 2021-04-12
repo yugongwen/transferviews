@@ -1,6 +1,7 @@
 <template>
   <div>
-    <el-form>
+    <div class="transfercontent">
+      <el-form>
       <el-form-item label="转账金额">
         <el-input v-model="form.price"> </el-input>
       </el-form-item>
@@ -11,7 +12,9 @@
         <el-button type="primary" @click="onSubmit">提交</el-button>
       </el-form-item>
     </el-form>
-       在线充值
+    </div>
+    
+       <!-- 在线充值 -->
   </div>
 </template>
 
@@ -33,6 +36,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang='scss' scoped>
+.transfercontent{
+  width: 500px;
+  margin: 20px auto;
+}
 </style>

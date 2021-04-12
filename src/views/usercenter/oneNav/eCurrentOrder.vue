@@ -13,7 +13,7 @@
                付款
              </el-button>
              <el-button @click="handleClick(scope.row)" type="text">
-               确认收获
+               确认收货
              </el-button>
            </template>
          </el-table-column>

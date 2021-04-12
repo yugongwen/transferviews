@@ -15,16 +15,16 @@
            <el-input v-model="form.personId" placeholder="请输入身份证号"></el-input>
          </el-form-item>
          <el-form-item label='手机号'>
-           <el-input v-model="form.phone"></el-input>
+           <el-input v-model="form.phone" placeholder="请输入手机号"></el-input>
          </el-form-item>
           <el-form-item label='联系地址'>
-           <el-input v-model="form.address"></el-input>
+           <el-input v-model="form.address" placeholder="请输入联系地址"></el-input>
          </el-form-item>
          <el-form-item label='微信号'>
-           <el-input v-model="form.weChat"></el-input>
+           <el-input v-model="form.weChat" placeholder="请输入微信号"></el-input>
          </el-form-item>
           <el-form-item label="腾讯QQ">
-           <el-input type="textarea" v-model="form.qq"></el-input>
+           <el-input v-model="form.qq" placeholder="请输入QQ号"></el-input>
            </el-form-item>
            <el-form-item>
              <el-button type="primary" @click="onSubmit">确定</el-button>
@@ -61,9 +61,6 @@ export default {
 .psersonInfo{
   /* display: flex; */
   box-sizing: border-box;
-  padding: 0 300px 100px;
-}
-.forminfo{
-  /* width:80%; */
+  padding: 0 500px 100px;
 }
 </style>
