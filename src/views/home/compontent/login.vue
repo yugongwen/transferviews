@@ -21,6 +21,10 @@
           <el-button type="primary" @click="onSubmit">登录</el-button>
         </el-form-item>
       </el-form>
+      <div class ='forgot'>
+        <el-button type="text">忘记密码？</el-button>
+      </div>
+      
     </el-main>
   </div>
 </template>
@@ -65,10 +69,23 @@ export default {
 </script>
 <style scoped lang="scss">
 .loginData {
-  width: 400px;
-  margin: auto;
+   border:1px solid #eee;
+  border-radius:0.4rem  ;
+  box-shadow: 0.2rem 0.2rem 6px  #eee ;
+  width: 500px;
+  margin: 4rem auto;
+  box-sizing: border-box;
+  padding:2.6rem;
   h4 {
-    font-size: 20px;
+     text-align: left;
+    padding-bottom:0.8rem;
+    border-bottom:solid 1px #eee;
+    color:#666;
+    font-size:16px;
+  }
+  .forgot{
+    text-align: left;
+    
   }
   //   display: flex;
 }
