@@ -22,7 +22,7 @@
         </el-form-item>
       </el-form>
       <div class ='forgot'>
-        <el-button type="text">忘记密码？</el-button>
+        <el-button type="text" @click="forgotFn()">忘记密码？</el-button>
       </div>
       
     </el-main>
@@ -42,6 +42,10 @@ export default {
     };
   },
   methods: {
+    //忘记密码
+    forgotFn(){
+
+    },
     onSubmit() {
       // console.log("submit");
       console.log(this.form);
