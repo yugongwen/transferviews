@@ -7,7 +7,7 @@
         <img src="../../assets/home/home_logo.png" alt="首页图标"  />
       </div>
         
-        <div class="tiplogin">
+        <div class="tiplogin" v-show="loginShow">
           <span>欢迎使用北欧海淘，请先</span>
           <el-button type="text" @click="handleSelect('login')">登录</el-button>
           <span>或者</span>
@@ -40,21 +40,16 @@ import { useRouter,} from "vue-router";
 export default {
   data(){
     return {
-      activeIndex:''
+      activeIndex:'',
+      loginShow:true,
     }
   },
   setup() {
-    
     const router = useRouter();
     // let current = getCurrentInstance();
     let homeactive = ref(localStorage.getItem('activehome')||`homepage`);
     // let activeIndex;
     function handleSelect(key, keyPath) {
-      //  activeIndex =key;
-      // console.log(activeIndex, keyPath);
-
-      // console.log(current.ctx.activeIndex);
-    //  console.log(activeIndex)
       localStorage.setItem('activehome',key)
       if(key =='usercenter'){
         localStorage.setItem(`routerPath`,`personInfo`);
@@ -76,7 +71,8 @@ export default {
   // },
   // mounted
   mounted(){
-    this.activeIndex = localStorage.getItem('activehome')
+    this.activeIndex = localStorage.getItem('activehome');
+    this.loginShow = !localStorage.getItem('loginShow')
     // this.handleSelect(`homepage`)
   }
 };
