@@ -21,6 +21,7 @@
           <el-menu-item index="newuser">新手上路</el-menu-item>
           <el-menu-item index="usercenter">用户中心</el-menu-item>
         </el-menu>
+        <el-button type="text" class="exitButton" @click='exit()' v-show="!loginShow">退出</el-button>
       </div>
       <!-- <span>欢迎光临北欧海淘，请先登录或注册</span> -->
     </el-header>
@@ -37,6 +38,7 @@
 <script>
 import { ref,getCurrentInstance } from "vue";
 import { useRouter,} from "vue-router";
+import event from '../../untils/event'
 export default {
   data(){
     return {
@@ -62,8 +64,13 @@ export default {
     };
     return { homeactive,handleSelect };
   },
-  methods(){
-
+  methods:{
+    exit(){
+      this.$router.push('/homePage');
+      localStorage.clear();
+      this.loginShow= true;
+      // this.homeactive = 'homePage'
+    },
   },
   // created(){
     
@@ -72,8 +79,13 @@ export default {
   // mounted
   mounted(){
     this.activeIndex = localStorage.getItem('activehome');
-    this.loginShow = !localStorage.getItem('loginShow')
+    // this.loginShow = !localStorage.getItem('loginShow')
     // this.handleSelect(`homepage`)
+    event.on('loginShow',(data)=>{
+      // console.log(data);
+      // debugger;
+      this.loginShow = data;
+    })
   }
 };
 </script>
@@ -115,6 +127,14 @@ export default {
   }
   .rightNav{
     min-width: 300px;
+    .exitButton{
+      font-size:14px;
+      color:#999;
+      padding: 0 20px;
+    }
+    .exitButton:hover{
+      color:rgb(64, 158, 255)
+    }
   }
 }
 // .el-main{

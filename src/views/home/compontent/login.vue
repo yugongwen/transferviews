@@ -32,6 +32,8 @@
 <script>
 import { postLogin} from '../../../api/api'
 import {ElMessage} from 'element-plus'
+import event from '../../../untils/event'
+// import mitt from 'mitt'
 export default {
   data() {
     return {
@@ -48,6 +50,7 @@ export default {
     },
     onSubmit() {
       // console.log("submit");
+      // const emitter = mitt();
       console.log(this.form);
       // debugger;
        postLogin(this.form).then(data=>{
@@ -65,7 +68,9 @@ export default {
           console.log(data.data.token)
           const token = data.data.token;
           window.localStorage.setItem('token',token);
-          window.localStorage.setItem('loginShow',true)
+          // emitter.emit('loginShow',false)
+          // window.localStorage.setItem('loginShow',false)
+          event.emit('loginShow',false)
          this.$router.push('/wareAddress')
          }
        })

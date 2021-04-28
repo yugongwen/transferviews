@@ -61,6 +61,6 @@ export default {
 .psersonInfo{
   /* display: flex; */
   box-sizing: border-box;
-  padding: 0 500px 100px;
+  padding: 0 50px 10px;
 }
 </style>
