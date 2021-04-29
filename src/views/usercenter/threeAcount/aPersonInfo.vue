@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import event from '../../../untils/event'
 export default {
   data(){
     return{
@@ -53,6 +54,11 @@ export default {
     onSubmit(){
       console.log(this.form)
     }
+  },
+  mounted(){
+    event.on('user',(data)=>{
+      console.log(data)
+    })
   }
 }
 </script>

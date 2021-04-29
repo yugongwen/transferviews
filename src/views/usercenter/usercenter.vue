@@ -76,7 +76,7 @@ export default {
       })
     }
     onBeforeRouteUpdate((to)=>{
-      console.log(to,'=====');
+      // console.log(to,'=====');
       let newRouter =to.fullPath.substr(1)
       localStorage.setItem(`routerPath`,newRouter)
       // let urldata = to.fullPath.substr(1)

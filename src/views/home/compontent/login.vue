@@ -65,11 +65,13 @@ export default {
             message:data.message,
             type:'success'
           })
-          console.log(data.data.token)
+          // console.log(data.data.token)
           const token = data.data.token;
           window.localStorage.setItem('token',token);
-          // emitter.emit('loginShow',false)
-          // window.localStorage.setItem('loginShow',false)
+        //传递获取的用户信息
+          const userinfo = data.data.user[0];
+          event.emit("user",userinfo)
+          //关闭登录提示
           event.emit('loginShow',false)
          this.$router.push('/wareAddress')
          }
