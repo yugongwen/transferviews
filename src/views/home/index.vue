@@ -79,11 +79,8 @@ export default {
   // mounted
   mounted(){
     this.activeIndex = localStorage.getItem('activehome');
-    // this.loginShow = !localStorage.getItem('loginShow')
-    // this.handleSelect(`homepage`)
+    this.loginShow = !Boolean(localStorage.getItem('token'))
     event.on('loginShow',(data)=>{
-      // console.log(data);
-      // debugger;
       this.loginShow = data;
     })
   }

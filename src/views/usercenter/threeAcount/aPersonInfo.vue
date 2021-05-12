@@ -4,11 +4,11 @@
                  <el-main  class="forminfo">
         <el-form label-width="160px" ref="form" :model="form">
          <el-form-item label='姓名'>
-           <el-input v-model="form.name" placeholder="请输入姓名"></el-input>
+           <el-input v-model="form.username" placeholder="请输入姓名"></el-input>
          </el-form-item>
          <el-form-item label='电子邮箱'>
            <div class="addressSelect">
-              <el-input v-model="form.email" placeholder="请输入电子邮箱"></el-input>
+              <el-input v-model="form.useremail" placeholder="请输入电子邮箱"></el-input>
            </div>
          </el-form-item>
           <el-form-item label='身份证号'>
@@ -40,8 +40,8 @@ export default {
   data(){
     return{
        form:{
-      name:'',
-      email:'',
+      username:'',
+      useremail:'',
       personId:'',
       phone:'',
       address:'',
@@ -55,10 +55,8 @@ export default {
       console.log(this.form)
     }
   },
-  mounted(){
-    event.on('user',(data)=>{
-      console.log(data)
-    })
+  created(){
+    console.log('个人信息')
   }
 }
 </script>
@@ -67,6 +65,6 @@ export default {
 .psersonInfo{
   /* display: flex; */
   box-sizing: border-box;
-  padding: 0 50px 10px;
+  padding: 4rem 18rem 10px;
 }
 </style>
