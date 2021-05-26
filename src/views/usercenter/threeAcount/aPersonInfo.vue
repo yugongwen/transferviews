@@ -1,6 +1,6 @@
 <template>
   <div class="psersonInfo">
-       <p>个人信息</p>
+       <!-- <p>个人信息</p> -->
                  <el-main  class="forminfo">
         <el-form label-width="160px" ref="form" :model="form">
          <el-form-item label='姓名'>
@@ -8,7 +8,12 @@
          </el-form-item>
          <el-form-item label='电子邮箱'>
            <div class="addressSelect">
-              <el-input v-model="form.useremail" placeholder="请输入电子邮箱"></el-input>
+              <el-input v-model="form.usermail" placeholder="请输入电子邮箱"></el-input>
+           </div>
+         </el-form-item>
+          <el-form-item label='密码'>
+           <div class="password">
+              <el-input v-model="form.password" placeholder="请输入密码"></el-input>
            </div>
          </el-form-item>
           <el-form-item label='身份证号'>
@@ -28,6 +33,7 @@
            </el-form-item>
            <el-form-item>
              <el-button type="primary" @click="onSubmit">确定</el-button>
+             <!-- <el-button type="text" @click="changePass">修改密码</el-button> -->
            </el-form-item>
        </el-form>
        </el-main>
@@ -36,12 +42,15 @@
 
 <script>
 import event from '../../../untils/event'
+import {postUserinfo} from '../../../api/api'
+import {reactive} from 'vue'
 export default {
   data(){
     return{
        form:{
       username:'',
       useremail:'',
+      password:'',
       personId:'',
       phone:'',
       address:'',
@@ -50,13 +59,36 @@ export default {
     }
     }
   },
+  setup(){
+    let  userinfo = JSON.parse(localStorage.getItem('user'));
+    // console.log(userinfo)
+    // console.log('个人信息')
+    // let userform = reactive(userinfo)
+    return {userinfo}
+  },
   methods:{
     onSubmit(){
-      console.log(this.form)
+      
+      let userinfo={};
+        userinfo.id=this.form._id;
+      userinfo.username=this.form.username;
+      userinfo.password=this.form.password;
+      userinfo.userMail=this.form.usermail;
+      userinfo.personId=this.form.personId;
+      userinfo.phone=this.form.phone;
+      userinfo.address=this.form.address;
+      userinfo.weChat=this.form.weChat;
+      userinfo.qq=this.form.qq;
+      console.log(userinfo)
+      // debugger;
+      postUserinfo(userinfo).then(data=>{
+        console.log(data)
+      })
     }
   },
   created(){
-    console.log('个人信息')
+    this.form = this.userinfo ;
+    console.log(this.form)
   }
 }
 </script>

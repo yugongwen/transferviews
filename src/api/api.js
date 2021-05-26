@@ -43,3 +43,5 @@ axios.interceptors.request.use((config) => {
 let base = 'http://localhost:3000';
 export const postRegister = params =>{return axios.post(`${base}/users/register`,params).then(res=>res.data).catch(err=>{});};
 export const postLogin = params =>{return axios.post(`${base}/users/login`,params).then(res=>res.data).catch(err=>{});};
+//用户基本信息修改
+export const postUserinfo = params =>{return axios.post(`${base}/users/userinfo`,params).then(res=>res.data).catch(err=>{});};

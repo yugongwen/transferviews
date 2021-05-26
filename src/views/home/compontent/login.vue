@@ -51,7 +51,7 @@ export default {
     onSubmit() {
       // console.log("submit");
       // const emitter = mitt();
-      console.log(this.form);
+      // console.log( typepf(this.form));
       // debugger;
        postLogin(this.form).then(data=>{
          console.log(data)
@@ -70,6 +70,7 @@ export default {
           window.localStorage.setItem('token',token);
         //传递获取的用户信息
           const userinfo = data.data.user[0];
+          localStorage.setItem('user',JSON.stringify(userinfo))
           event.emit("user",userinfo)
           //关闭登录提示
           event.emit('loginShow',false)
