@@ -8,7 +8,7 @@
          </el-form-item>
          <el-form-item label='电子邮箱'>
            <div class="addressSelect">
-              <el-input v-model="form.usermail" placeholder="请输入电子邮箱"></el-input>
+              <el-input v-model="form.userMail" placeholder="请输入电子邮箱"></el-input>
            </div>
          </el-form-item>
           <el-form-item label='密码'>
@@ -49,7 +49,7 @@ export default {
     return{
        form:{
       username:'',
-      useremail:'',
+      usereMail:'',
       password:'',
       personId:'',
       phone:'',
@@ -73,7 +73,7 @@ export default {
         userinfo.id=this.form._id;
       userinfo.username=this.form.username;
       userinfo.password=this.form.password;
-      userinfo.userMail=this.form.usermail;
+      userinfo.userMail=this.form.userMail;
       userinfo.personId=this.form.personId;
       userinfo.phone=this.form.phone;
       userinfo.address=this.form.address;
@@ -83,6 +83,13 @@ export default {
       // debugger;
       postUserinfo(userinfo).then(data=>{
         console.log(data)
+        if(data.status ==0){
+          this.form = userinfo;
+          localStorage.setItem('user',JSON.stringify(userinfo))
+        }
+        else{
+          console.log("保存失败")
+        }
       })
     }
   },

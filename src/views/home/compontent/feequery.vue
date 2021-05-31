@@ -107,7 +107,7 @@ export default {
 <style scoped lang='scss'>
 .content{
   box-sizing: border-box;
-  padding:20px 100px 100px 100px;
+  padding:20px 300px 200px 300px;
   hr{
     margin:30px 0 10px 0;
     color:#999;
